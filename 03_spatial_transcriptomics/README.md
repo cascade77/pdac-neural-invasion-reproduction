@@ -20,7 +20,7 @@ Selected 4 tissue slides for analysis
 | GSM8552953 | PA#22 | Low NI |
 
 Two High-NI and two Low-NI slides were selected to enable direct biological comparison.
-<img width="906" height="1032" alt="image" src="https://github.com/user-attachments/assets/d1e9be6e-9253-4d64-967c-f9048e0f3abd" />
+<img width="700" height="900" alt="image" src="https://github.com/user-attachments/assets/d1e9be6e-9253-4d64-967c-f9048e0f3abd" />
 
 ##Analysis Pipeline
 
