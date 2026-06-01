@@ -10,7 +10,7 @@ https://drive.google.com/file/d/1Aa0cUpYYrjbE5ruqFfO6JwKwECdjkSfH/view?usp=shari
 
  **Pancreatic Cancer:**
 Pancreatic Cancer is one of the deadliest cancers beacuse tumor cellls physically invade the nerves around them this is called Neural Invasaion(NI).Some patients have high neural invasion and some have low neural invasion. 
-Tow powerful technologies used is:
+The powerful technologies used is:
 Spatial Transcriptomics
 
 **Data Used:**
@@ -34,8 +34,8 @@ Dwnloaded data from GEO daatset and extracted 4 visium slides.
 
 ### 2. Data Loading
 Loaded all 4 slides into Python via Scanpy. Each slide is represented as a matrix:
-- **Rows** — tissue spots (~3,000–5,000 per slide)
-- **Columns** — genes (~33,000 total)
+- **Rows** tissue spots (~3,000–5,000 per slide)
+- **Columns** genes (~33,000 total)
 
 Each slide was labeled with its NI status (High/Low) for downstream comparison.
 
