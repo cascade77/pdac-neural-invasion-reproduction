@@ -2,6 +2,7 @@
 Data:
 
 https://drive.google.com/drive/folders/1eALXvYj_y0KnL6aL_TokZauuRtQzlywi?usp=sharing
+
 Notebook:
 
 https://drive.google.com/file/d/1Aa0cUpYYrjbE5ruqFfO6JwKwECdjkSfH/view?usp=sharing
@@ -9,9 +10,8 @@ https://drive.google.com/file/d/1Aa0cUpYYrjbE5ruqFfO6JwKwECdjkSfH/view?usp=shari
 
  **Pancreatic Cancer:**
 Pancreatic Cancer is one of the deadliest cancers beacuse tumor cellls physically invade the nerves around them this is called Neural Invasaion(NI).Some patients have high neural invasion and some have low neural invasion. 
-Tow powerful technologies used are:
-1. Single cell RNA sequencing
-2. Spatial Transcriptomics
+Tow powerful technologies used is:
+Spatial Transcriptomics
 
 **Data Used:**
 The data is from database Gene Expression Omnibus.
