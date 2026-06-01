@@ -1,74 +1,6 @@
 # PDAC Neural Invasion Reproduction
 
-## Project Overview
 
-This project reproduces key analyses from the paper:
-
-**"Integrated Single-Cell and Spatial Transcriptomics Uncover Distinct Cellular Subtypes Involved in Neural Invasion in Pancreatic Cancer"**
-
-The study investigates how different cell populations within the pancreatic ductal adenocarcinoma (PDAC) tumor microenvironment contribute to neural invasion, a process where cancer cells infiltrate surrounding nerves and promote disease progression.
-
-Using single-cell RNA sequencing (scRNA-seq) analysis, we reproduced major clustering and cell annotation steps described in the publication and identified cell populations associated with neural invasion.
-
----
-
-## Objectives
-
-- Reproduce the single-cell transcriptomic workflow from the original paper.
-- Identify major cell populations present in PDAC samples.
-- Perform dimensionality reduction and clustering.
-- Annotate clusters using known marker genes.
-- Investigate Schwann-cell heterogeneity.
-- Explore expression of **TGFBI**, a key marker associated with neural invasion.
-
----
-
-## Dataset
-
-The analysis was performed using pancreatic cancer single-cell transcriptomic data described in the original publication.
-
-The original study combined:
-
-- Single-cell RNA sequencing (scRNA-seq)
-- Single-nucleus RNA sequencing (snRNA-seq)
-- Spatial transcriptomics
-
-to investigate cellular populations involved in neural invasion.
-
----
-
-# Analysis Workflow
-
-## 1. Data Preprocessing
-
-- Quality control filtering
-- Normalization
-- Identification of highly variable genes
-- Scaling of expression values
-
-## 2. Dimensionality Reduction
-
-Principal Component Analysis (PCA) was used to reduce data dimensionality while preserving biological variation.
-
-## 3. Clustering
-
-Graph-based clustering was performed to identify transcriptionally distinct cell populations.
-
-## 4. Cell Type Annotation
-
-Clusters were annotated using canonical marker genes reported in the literature and the original paper.
-
-## 5. Schwann Cell Subclustering
-
-Schwann cells were isolated and re-clustered to investigate their internal heterogeneity and identify subpopulations linked to neural invasion.
-
-## 6. Marker Validation
-
-Feature plots and dot plots were used to validate cluster annotations and marker gene expression patterns.
-
----
-
-# My Contribution (P2)
 
 ### Clustering and Cell-Type Annotation
 
@@ -87,6 +19,7 @@ My primary responsibilities included:
 # Results
 
 ## 1. UMAP of Major Cell Types
+<img width="1600" height="1200" alt="umap_celltypes-1" src="https://github.com/user-attachments/assets/cc22c2ef-c431-475e-a05d-fa7b1575c797" />
 
 The UMAP visualization revealed distinct cellular populations within the PDAC microenvironment.
 
@@ -108,6 +41,7 @@ The tumor microenvironment consists of multiple interacting immune, stromal, neu
 ---
 
 ## 2. Schwann Cell Subclustering
+<img width="1200" height="1000" alt="umap_schwann_subtypes-1" src="https://github.com/user-attachments/assets/6b4767ca-a7f5-4448-9843-43b788dfbb2c" />
 
 A second clustering analysis was performed specifically on Schwann cells.
 
@@ -120,6 +54,7 @@ The original paper showed that different Schwann-cell states play different role
 ---
 
 ## 3. TGFBI Feature Plot
+<img width="1000" height="1000" alt="featureplot_TGFBI-1" src="https://github.com/user-attachments/assets/c2f97245-1e77-4fef-b854-1a247fc1a44a" />
 
 Expression of **TGFBI** was visualized across Schwann-cell populations.
 
@@ -140,6 +75,7 @@ The observed expression pattern supports the existence of biologically distinct 
 ---
 
 ## 4. Marker Gene Dot Plot
+<img width="1600" height="1200" alt="umap_celltypes-1" src="https://github.com/user-attachments/assets/dbec4bf9-6252-4881-b64f-7769bac1fd62" />
 
 A dot plot was generated to validate cluster annotations using canonical marker genes.
 
