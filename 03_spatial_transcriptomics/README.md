@@ -22,12 +22,12 @@ Selected 4 tissue slides for analysis
 Two High-NI and two Low-NI slides were selected to enable direct biological comparison.
 <img width="700" height="900" alt="image" src="https://github.com/user-attachments/assets/d1e9be6e-9253-4d64-967c-f9048e0f3abd" />
 
-##Analysis Pipeline
+#**Analysis Pipeline**
 
-###1. Data Acquisistion:
+#1. Data Acquisistion:
 Dwnloaded data from GEO daatset and extracted 4 visium slides.
 
-###2.Data Loading:
+#2.Data Loading:
 Loaded all 4 slides into Python via Scanpy. Each slide is represented as a matrix:
 - **Rows** — tissue spots (~3,000–5,000 per slide)
 - **Columns** — genes (~33,000 total)
