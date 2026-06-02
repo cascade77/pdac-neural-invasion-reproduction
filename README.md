@@ -146,9 +146,6 @@ This file is too large for GitHub (above the 100MB limit) so it is shared separa
 
 ---
 
-## Reference
-
-Chen MM, Gao Q, Ning H, et al. Integrated single-cell and spatial transcriptomics uncover distinct cellular subtypes involved in neural invasion in pancreatic cancer. *Cancer Cell.* 2025. [https://doi.org/10.1016/j.ccell.2025.04.014](https://doi.org/10.1016/j.ccell.2025.04.01
 
 ### Clustering and Cell-Type Annotation
 
@@ -284,9 +281,7 @@ project/
 
 ---
 
-# Reference
 
-Chen MM, Gao Q, Ning H, et al.
 
 **Integrated Single-Cell and Spatial Transcriptomics Uncover Distinct Cellular Subtypes Involved in Neural Invasion in Pancreatic Cancer.**
 
@@ -500,3 +495,8 @@ change inside the tumor — possibly transitioning toward the TGFBI+ subtype
 as pseudotime increases.
 
 
+## Reference
+
+Chen MM, Gao Q, Ning H, et al. Integrated single-cell and spatial transcriptomics uncover distinct cellular subtypes involved in neural invasion in pancreatic cancer. *Cancer Cell.* 2025. [https://doi.org/10.1016/j.ccell.2025.04.014](https://doi.org/10.1016/j.ccell.2025.04.01
+
+Chen MM, Gao Q, Ning H, et al.
