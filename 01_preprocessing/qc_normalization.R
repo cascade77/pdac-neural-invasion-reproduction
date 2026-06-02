@@ -25,14 +25,20 @@ load_sample <- function(path, sample_id)
 
 cat("loading samples...\n")
 seurat_list <- mapply(load_sample, sample_files, names(sample_files), SIMPLIFY = FALSE)
-
 merged <- merge(seurat_list[[1]], y = seurat_list[-1], add.cell.ids = names(seurat_list))
 
-qc_plot <- VlnPlot(merged, features = c("nFeature_RNA", "nCount_RNA", "pct_mt"), ncol = 3)
-ggsave(file.path(out_dir, "qc_before_filter.jpeg"), qc_plot, width = 12, height = 5)
-cat("QC plot saved\n")
+# BEFORE filtering plot
+cat("generating QC plot BEFORE filtering...\n")
+qc_before <- VlnPlot(merged, features = c("nFeature_RNA", "nCount_RNA", "pct_mt"), ncol = 3)
+ggsave(file.path(out_dir, "01_qc_before_filter.jpeg"), qc_before, width = 12, height = 5)
 
+# NOW filter
 merged <- subset(merged, subset = nFeature_RNA > 200 & nFeature_RNA < 6000 & pct_mt < 25)
+
+# AFTER filtering plot
+cat("generating QC plot AFTER filtering...\n")
+qc_after <- VlnPlot(merged, features = c("nFeature_RNA", "nCount_RNA", "pct_mt"), ncol = 3)
+ggsave(file.path(out_dir, "02_qc_after_filter.jpeg"), qc_after, width = 12, height = 5)
 
 cat("normalizing...\n")
 merged <- NormalizeData(merged)
