@@ -84,19 +84,24 @@ The most really important metric here is the mitochondrial gene percentage (`pct
 ```r
 merged <- merge(seurat_list[[1]], y = seurat_list[-1], add.cell.ids = names(seurat_list))
 
-qc_plot <- VlnPlot(merged, features = c("nFeature_RNA", "nCount_RNA", "pct_mt"), ncol = 3)
-ggsave(file.path(out_dir, "qc_before_filter.jpeg"), qc_plot, width = 12, height = 5)
+qc_before <- VlnPlot(merged, features = c("nFeature_RNA", "nCount_RNA", "pct_mt"), ncol = 3)
+ggsave(file.path(out_dir, "01_qc_before_filter.jpeg"), qc_before, width = 12, height = 5)
 ```
 
-We merge all 4 samples into a single object before filtering so the violin plots show the distribution across all samples together. This lets you see the overall quality landscape and pick the sensible cutoffs.
+We merge all 4 samples into a single object before filtering so the violin plots show the distribution across all samples together. This lets you see the overall quality landscape and pick sensible cutoffs.
 
-### Step 4: Filter low-quality cells
+### Step 4: Filter low-quality cells and visualize QC after filtering
 
 ```r
 merged <- subset(merged, subset = nFeature_RNA > 200 & nFeature_RNA < 6000 & pct_mt < 25)
+
+qc_after <- VlnPlot(merged, features = c("nFeature_RNA", "nCount_RNA", "pct_mt"), ncol = 3)
+ggsave(file.path(out_dir, "02_qc_after_filter.jpeg"), qc_after, width = 12, height = 5)
 ```
 
-Cells with fewer than 200 detected genes are almost certainly empty droplets. Cells with more than 6000 detected genes are likely doublets. Cells with more than 25% mitochondrial reads are likely dead or damaged. These thresholds are consistent with what the original paper used and are standard in the field.
+After filtering we regenerate the same three violin plots so you can directly compare the before and after distributions. Cells with fewer than 200 detected genes are almost certainly empty droplets. Cells with more than 6000 are likely doublets. Cells with more than 25% mitochondrial reads are likely dead or damaged.
+
+
 
 ### Step 5: Normalize and find variable features
 
@@ -117,17 +122,20 @@ merged <- RunHarmony(merged, group.by.vars = "sample_id", dims.use = 1:20)
 saveRDS(merged, file.path(data_dir, "../processed_subset.rds"))
 ```
 
-Even after normalization, cells from different patients will cluster by patient rather than by cell type, because there are patient-specific technical and biological differences. Harmony corrects for this by iteratively adjusting the PCA embedding until cells group by biology rather than by which patient they came from. We use the first 20 PCs as input to Harmony. The final processed Seurat object is saved as an .rds file, which is what the downstream analysis (Person 2, clustering) loads directly.
+Even after normalization, cells from different patients will cluster by patient rather than by cell type, because there are patient-specific technical and biological differences. Harmony corrects for this by iteratively adjusting the PCA embedding until cells group by biology rather than by which patient they came from. We use the first 20 PCs as input to Harmony. The final processed Seurat object is saved as an .rds file, which is what the clustering and annotation step loads directly.
 
 ---
 
 ## Results
 
-### QC Distributions Before Filtering
+![QC before filtering](results/01_qc_before_filter.jpeg)
 
-![QC violin plot before filtering](results/qc_before_filter.jpeg)
+Violin plots of QC metrics across all four samples before filtering. Gene counts, total UMI counts, and mitochondrial percentage are shown per sample.
 
-Violin plot showing the distribution of number of detected genes (`nFeature_RNA`), total UMI counts (`nCount_RNA`), and mitochondrial percentage (`pct_mt`) across all four merged samples before any filtering was applied. The distributions look reasonable, with no extreme outliers that would indicate a completely failed sample.
+![QC after filtering](results/02_qc_after_filter.jpeg)
+
+The same metrics after applying filters (200 to 6000 genes per cell, under 25% mitochondrial reads). Distributions are tighter and comparable across all four samples.
+
 
 ---
 
